@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #task{
+            font-size:25px;
+        }
+        body{
+            text-align:center;
+        }
+        #task{
+            background-color:burlywood;
+            border: 10px solid black;
+            padding:10px;
+        }
+        #task>div:hover{
+            background-color:bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="To-Do">
+        <h1>To-Do List:</h1>
+        <div id="task"></div>
+    <button onclick="myFunction()">Add new task</button>
+    <button onclick="Edit()">Edit</button>
+    <button onclick="Delete()">Delete</button>
+
+    </div>
+    <script>
+        function myFunction(){
+        var item = document.createElement("div")
+        var newtxt = document.createTextNode(prompt("What is your task?"))
+        item.appendChild(newtxt)
+        document.getElementById("task").appendChild(item)
+        }
+        function Edit(){
+            var previous = prompt("What task are you edititing?");
+            var newthing = prompt("What are you changing it to?");
+            var replacee = document.getElementById(previous);
+            /*var atext = replacee.firstChild.nodeValue;
+            atext = atext.replace(replacee.firstChild.nodeValue, newthing);
+            replacee.firstChild.nodeValue=atext;*/
+            replacee.id=(newthing);
+        }
+        function Delete(){
+            var deleted = prompt("What would you like to delete?");
+            const thing = document.getElementById(deleted);
+            thing.remove();
+        }
+        
+    </script>
+</body>
+</html>
